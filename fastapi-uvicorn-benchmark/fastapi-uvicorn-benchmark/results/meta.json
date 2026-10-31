@@ -1,0 +1,31 @@
+{
+  "started_utc": "20261030T161126Z",
+  "python": "3.13.17 (tags/v3.13.17:64e080d, Oct 21 2026, 14:08:53) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+  "cpu_count_logical": 8,
+  "packages": {
+    "fastapi": "0.162.0",
+    "starlette": "1.10.0",
+    "uvicorn": "0.54.0",
+    "orjson": "3.13.0",
+    "uvloop": null,
+    "httptools": "0.9.0"
+  },
+  "client_loop": "asyncio",
+  "client_procs": 2,
+  "args": {
+    "repeats": 2,
+    "duration": 4.0,
+    "warmup": 1.0,
+    "concurrency": 64,
+    "procs": 2,
+    "port": 8765,
+    "loop": "auto",
+    "app": "app:app",
+    "app_dir": "C:\\Users\\ENG SIMO\\Downloads\\fastapi-uvicorn-benchmark\\fastapi-uvicorn-benchmark",
+    "out": "C:\\Users\\ENG SIMO\\Downloads\\fastapi-uvicorn-benchmark\\fastapi-uvicorn-benchmark\\results",
+    "seed": 12345,
+    "quick": true
+  }
+}
