@@ -1,5 +1,7 @@
 # FastAPI / Uvicorn performance benchmark
 
+   Paper (preprint, not peer reviewed): https://doi.org/10.5281/zenodo.23899505
+
 A small, reproducible benchmark of how common configuration choices affect
 latency and throughput of a FastAPI service running under Uvicorn.
 
