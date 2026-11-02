@@ -51,6 +51,22 @@ Output goes to `results/`:
   used more than 90% of a CPU, and throughput in that run may be limited by the
   client rather than the server. Re-run with `--procs 2` or more.
 
+## Troubleshooting
+
+- **Output stops scrolling (Windows):** clicking or selecting text inside the
+  terminal window pauses the program. Press Esc or Enter to resume. Don't click
+  in the window while the benchmark runs.
+- **To stop a run:** press Ctrl+C once. Then check Task Manager for leftover
+  `python.exe` processes and end them before starting again.
+- **A connection that stops responding** is cancelled 15 seconds after the run
+  window closes and counted in the `errors` column, instead of hanging the run.
+- **The run stopped or failed part-way:** run the same command again with `--resume`
+  added (`python run_benchmark.py --resume`). It keeps `results/results.csv`, skips
+  finished measurements and continues with the same planned order. Use the same
+  settings as the first run.
+- **Port:** each server start picks a free port automatically. To force one, add
+  `--port 8800`.
+
 ## How it works
 
 - `app.py` - the service under test. Handlers return Response objects directly,
@@ -58,10 +74,17 @@ Output goes to `results/`:
   thing that differs between the two serializer settings.
 - `loadgen.py` - closed-loop load generator (standard library only). 64 keep-alive
   connections by default; each sends its next request when the previous response
-  completes. The first 3 seconds of each run are discarded as warm-up.
+  completes. The first 3 seconds of each run are discarded as warm-up. Connections
+  open 10 ms apart and retry with backoff, because Windows can reset a burst of
+  simultaneous connects. A connection that fails is counted (inside the measured
+  window only), its error type is printed, and it reconnects so the concurrency
+  level stays constant.
 - `run_benchmark.py` - starts Uvicorn for each configuration, runs every endpoint,
   stops it. Each repeat visits every configuration in a shuffled order, so slow
-  drift on the machine is spread across configurations.
+  drift on the machine is spread across configurations. After each server start
+  it asks `/pid` repeatedly to confirm the requested number of workers is really
+  answering, and restarts the server (up to 3 attempts) if not. The
+  `workers_seen` column in `results.csv` records what it found.
 
 ## Limitations
 

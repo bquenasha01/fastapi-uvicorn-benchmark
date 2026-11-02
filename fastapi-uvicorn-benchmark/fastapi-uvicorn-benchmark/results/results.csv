@@ -1,5 +1,0 @@
-repeat,serializer,workers,workers_seen,endpoint,loop,concurrency,client_procs,requests,errors,rps,mean_ms,p50_ms,p95_ms,p99_ms,client_cpu_max,client_bound
-1,default,2,2,/small-sync,auto,64,2,12382,0,3095.5,20.6503,20.3292,25.2332,28.4254,0.4336,0
-1,default,2,2,/large-sync,auto,64,2,2405,0,601.25,107.0397,107.3958,138.1792,154.5603,0.1209,0
-1,default,2,2,/large-async,auto,64,2,2783,0,695.75,91.8731,90.5279,109.0171,119.1928,0.125,0
-1,default,2,2,/small-async,auto,64,2,19532,0,4883.0,13.0968,12.5352,17.1886,19.9372,0.6055,0

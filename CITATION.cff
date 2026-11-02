@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "FastAPI / Uvicorn performance benchmark"
+type: software
+authors:
+  - family-names: "Byrd"
+    given-names: "Quenasha"
+repository-code: "https://github.com/bquenasha01/fastapi-uvicorn-benchmark"
+license: MIT
+abstract: "A reproducible benchmark of how handler type, JSON serializer, response size and Uvicorn worker count affect the latency and throughput of a small FastAPI service."
+keywords:
+  - fastapi
+  - uvicorn
+  - benchmark
+  - performance
+  - latency
+  - throughput
+  - orjson
