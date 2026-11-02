@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "FastAPI / Uvicorn performance benchmark"
+doi: 10.5281/zenodo.23899505
 type: software
 authors:
   - family-names: "Byrd"
